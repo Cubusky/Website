@@ -4,45 +4,40 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <div
-          id="chicken"
-          style={{
-            width: 56,
-            height: "calc(var(--spacing) * 12)",
-            backgroundSize: "cover",
-            position: "relative",
-            bottom: -10,
-            pointerEvents: "all",
-          }}
-        ></div>
+        <div id="cubusky-container">
+          <div id="cubusky-header">
+            <div id="think-bubble" />
+            <div id="cubusky" />
+          </div>
+        </div>
         <div className="text-pop superpop">
           <span
-            id="chicken-text"
+            id="cubusky-text"
             className="text-xl text-[var(--logo-text)] font-semibold"
           >
-            Chickensoft
+            Cubusky
           </span>
         </div>
       </>
     ),
   },
-  githubUrl: "https://github.com/chickensoft-games/",
+  githubUrl: "https://github.com/Cubusky/",
   links: [
-    {
-      text: "Blog",
-      url: "/blog",
-    },
-    {
-      text: "Team",
-      url: "/team",
-    },
-    {
-      text: "Docs",
-      url: "/docs",
-    },
+    // {
+    //   text: "Blog",
+    //   url: "/blog",
+    // },
+    // {
+    //   text: "Team",
+    //   url: "/team",
+    // },
     {
       text: "About",
       url: "/about",
+    },
+    {
+      text: "Licenses",
+      url: "/license",
     },
   ],
 };

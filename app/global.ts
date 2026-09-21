@@ -42,37 +42,35 @@ export type FooterCategory = {
 };
 
 export const site: SiteData = {
-  url: "https://chickensoft.games/",
-  logo: "/img/chickensoft_logo.svg",
-  title: "Chickensoft",
-  subtitle: "Open source tools for Godot and C#.",
-  description:
-    "Chickensoft is a community of Godot + C# game developers, as well as the home to numerous open source tools.",
+  url: "https://cubusky.code/",
+  logo: "/img/cubusky/cubusky.png",
+  title: "Cubusky",
+  subtitle: "Tools for C# Game Development.",
+  description: "Cubusky is a company primarily focused on tools for C# game development and -consultancy.",
   previewImage: "/img/preview.png",
   gtag: "G-9WXTBSQCGL",
   discord: {
     serverId: "862108653488963604",
     inviteUrl: "https://discord.gg/MjA6HUzzAE",
     inviteCode: "MjA6HUzzAE",
-    fallbackNumMembersOnline: 326,
-    fallbackNumMembers: 1496,
-    image: "/img/chickensoft_square.png",
-    title: "🐤 Chickensoft",
+    fallbackNumMembersOnline: -1,
+    fallbackNumMembers: -1,
+    image: "/img/cubusky/cubusky.png",
+    title: "🐾 Cubusky",
   },
   github: {
-    url: "https://github.com/chickensoft-games/",
-    orgName: "chickensoft-games",
+    url: "https://github.com/Cubusky/",
+    orgName: "Cubusky",
     patEnvVar: "GH_BASIC",
   },
   keywords: [
     "software architecture",
     "architecture",
-    "Godot",
     "C#",
-    "chickensoft",
+    "Unity",
+    "Godot",
     "game design",
     "game engine",
-    "Unity",
     "indie game development",
     "open source",
     "foss",
@@ -97,45 +95,23 @@ export const site: SiteData = {
   ],
   footerLinks: [
     {
-      title: "Chickensoft",
+      title: "Cubusky",
       links: [
+        // {
+        //   url: "/blog",
+        //   title: "Blog",
+        // },
+        // {
+        //   url: "/team",
+        //   title: "Team",
+        // },
         {
           url: "/about",
           title: "About",
         },
         {
-          url: "/team",
-          title: "Team",
-        },
-        {
-          url: "/philosophy",
-          title: "Philosophy",
-        },
-      ],
-    },
-    {
-      title: "Organizational",
-      links: [
-        {
-          url: "/code-of-conduct",
-          title: "Code of Conduct",
-        },
-        {
           url: "/license",
           title: "Licenses",
-        },
-      ],
-    },
-    {
-      title: "Technical",
-      links: [
-        {
-          url: "/blog",
-          title: "Blog",
-        },
-        {
-          url: "/docs",
-          title: "Documentation",
         },
       ],
     },

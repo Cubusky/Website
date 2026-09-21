@@ -1,13 +1,13 @@
-# Chickensoft Website
+# Cubusky Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4914b005-8ae0-4158-9735-0b4b10bd87e4/deploy-status)](https://app.netlify.com/sites/chickensoft/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4914b005-8ae0-4158-9735-0b4b10bd87e4/deploy-status)](https://app.netlify.com/sites/cubusky/deploys)
 
-The official [Chickensoft Website](https://chickensoft.games).
+The official [Cubusky Website](https://cubusky.code).
 
 ---
 
 <p align="center">
-<img alt="Chickensoft Site Logo" src="public/img/chickensoft/chickensoft_site.svg" width="200">
+<img alt="Cubusky Site Logo" src="public/img/cubusky/cubusky.png" width="200">
 </p>
 
 This is a Next.js application generated with

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "$id": "https://chickensoft.games/schemas/addons.schema.json",
+  "$id": "https://cubusky.code/schemas/addons.schema.json",
   "title": "Godot Addons",
   "description": "Godot addons configuration file.",
   "type": "object",

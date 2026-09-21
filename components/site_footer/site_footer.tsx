@@ -30,7 +30,7 @@ export default function SiteFooter(props: SiteFooterProps): JSX.Element {
               />
               <div className="text-left">
                 <p className="text-2xl text-[var(--logo-text-shimmer)] font-semibold mb-[-5px]">
-                  Chickensoft
+                  Cubusky
                 </p>
                 <h3 className="text-lg text-[var(--color-fd-muted-foreground)] font-semibold text-left">
                   {site.subtitle}

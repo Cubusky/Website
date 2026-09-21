@@ -29,8 +29,8 @@ const octokit = new Octokit({ auth: process.env[site.github.patEnvVar] });
 /**
  * Gets an individual repository. If already fetched, returns the cached
  * repository data.
- * @param owner Repository owner, e.g. "chickensoft-games"
- * @param repo Repository name: e.g., "GodotEnv"
+ * @param owner Repository owner, e.g. "Cubusky"
+ * @param repo Repository name: e.g., "BuildingBlocks"
  * @returns Repository information.
  */
 export const getRepository = cache(async function getRepository(

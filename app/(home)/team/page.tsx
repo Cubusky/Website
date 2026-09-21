@@ -17,14 +17,14 @@ export default function Home(): JSX.Element {
       <ChickenContainer className="mt-8 px-8 h-full grow mb-16">
         <>
           <p className="text-fd-muted-foreground">Meet the </p>
-          <h1 className="text-4xl font-bold mb-4">Chickensoft Team</h1>
+          <h1 className="text-4xl font-bold mb-4">Cubusky Team</h1>
 
           <TeamSection
             title="Leadership"
             category="admin"
             members={teamMembers}
           />
-          <TeamSection
+          {/* <TeamSection
             title="Community Moderators"
             category="mod"
             members={teamMembers}
@@ -33,7 +33,7 @@ export default function Home(): JSX.Element {
             title="Core Contributors"
             category="software"
             members={teamMembers}
-          />
+          /> */}
         </>
       </ChickenContainer>
       <SiteFooter />
