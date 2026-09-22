@@ -76,6 +76,11 @@ h6 a {
   border-radius: 8px;
 }
 
+/* GitHub link is now always shown directly, so hide the now-redundant overflow menu button. */
+#nd-nav button[aria-label="Toggle Menu"] {
+  display: none !important;
+}
+
 @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
   .pop {
     transition: all 0.05s ease-out;

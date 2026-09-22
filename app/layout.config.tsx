@@ -1,4 +1,6 @@
+import { NavbarLink } from "fumadocs-ui/layouts/home/navbar";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { FaGithub } from "react-icons/fa";
 
 export const baseOptions: BaseLayoutProps = {
   nav: {
@@ -16,7 +18,6 @@ export const baseOptions: BaseLayoutProps = {
       </>
     ),
   },
-  githubUrl: "https://github.com/Cubusky/",
   links: [
     // {
     //   text: "Blog",
@@ -33,6 +34,22 @@ export const baseOptions: BaseLayoutProps = {
     {
       text: "Licenses",
       url: "/license",
+    },
+    // Rendered directly instead of a 'githubUrl' icon link, which fumadocs always hides behind the overflow menu.
+    // `secondary: true` places it in the right-hand group next to the search bar.
+    {
+      type: "custom",
+      secondary: true,
+      children: (
+        <NavbarLink
+          item={{ url: "https://github.com/Cubusky/", external: true }}
+          variant="icon"
+          aria-label="GitHub"
+          className="-me-1.5"
+        >
+          <FaGithub className="size-4" />
+        </NavbarLink>
+      ),
     },
   ],
 };
