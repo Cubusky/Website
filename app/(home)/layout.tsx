@@ -10,13 +10,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         themeSwitch: { mode: "light-dark-system", enabled: false },
       }}
     >
-      {/* Cache the Cubusky hover image so it doesn't flicker on hover */}
-      <div
-        className="w-0 h-0"
-        style={{
-          backgroundImage: "url(/img/cubusky/cubusky.png)",
-        }}
-      ></div>
       {children}
     </HomeLayout>
   );

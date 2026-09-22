@@ -4,12 +4,7 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <div id="cubusky-container">
-          <div id="cubusky-header">
-            <div id="think-bubble" />
-            <div id="cubusky" />
-          </div>
-        </div>
+        <div id="cubusky" />
         <div className="text-pop superpop">
           <span
             id="cubusky-text"
