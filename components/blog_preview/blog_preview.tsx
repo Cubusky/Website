@@ -19,7 +19,8 @@ export default async function BlogPreview(
   const blogPost = blogLoader.getPage([props.slug]);
 
   if (!blogPost) {
-    throw new Error(`Blog with slug '${props.slug}' not found`);
+    console.log(`Blog with slug '${props.slug}' not found`);
+    return <></>;
   }
 
   const filePath = blogPost.data._file.absolutePath;
