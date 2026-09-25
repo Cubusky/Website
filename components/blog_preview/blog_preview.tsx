@@ -13,7 +13,7 @@ export type BlogPreviewProps = {
 };
 
 export default async function BlogPreview(
-  props: BlogPreviewProps
+  props: BlogPreviewProps,
 ): Promise<JSX.Element> {
   const blogPost = blogLoader.getPage([props.slug]);
 
@@ -22,10 +22,10 @@ export default async function BlogPreview(
     return <></>;
   }
 
-  let contents = await blogPost.data.getText("raw");
-  contents = contents.split("---")[2];
-  // get everything before the {/* truncate */} comment
-  const preview = contents.split("{/* truncate */}")[0];
+  // Read markdown preview snippet from a markdown file.
+  const contents = await blogPost.data.getText("raw");
+  const body = contents.split("---")[2];
+  const preview = body.split("{/* truncate */}")[0];
 
   return (
     <section
@@ -50,7 +50,7 @@ export default async function BlogPreview(
         flex
         flex-col
       `,
-        props.className
+        props.className,
       )}
     >
       <Link href={`/blog/${props.slug}`} className="grow flex flex-col">

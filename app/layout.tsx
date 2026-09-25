@@ -8,7 +8,6 @@ import { site } from "./global";
 
 // nextjs magic:
 export const revalidate = 600; // 600 seconds = 10 mins
-export const dynamicParams = true;
 
 /** SEO */
 export const metadata: Metadata = {
