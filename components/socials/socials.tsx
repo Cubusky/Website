@@ -1,5 +1,5 @@
 import { TeamMember } from "@/lib/schemas";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import { JSX } from "react";
 import {
   FaDiscord,

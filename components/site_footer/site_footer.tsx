@@ -1,5 +1,5 @@
 import { site } from "@/app/global";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import Link from "next/link";
 import { JSX } from "react";
 import ChickenContainer from "../chicken_container/chicken_container";

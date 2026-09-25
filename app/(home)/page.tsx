@@ -9,7 +9,7 @@ import SiteImage from "@/components/site_image/site_image";
 import { friends } from "@/data/friends";
 import GameDemoInGame from "@/public/img/game_demo/in_game.webp";
 import { getBlogs } from "@/utils/get_blogs";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import millify from "millify";
 import Image from "next/image";
 import Link from "next/link";

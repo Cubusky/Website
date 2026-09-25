@@ -1,4 +1,4 @@
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import { JSX, Suspense, use } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";

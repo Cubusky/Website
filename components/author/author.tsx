@@ -1,6 +1,6 @@
 import { TeamMemberWithUrl } from "@/lib/schemas";
 import { teamLoader } from "@/lib/source";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import Link from "next/link";
 import { JSX } from "react";
 import SiteImage from "../site_image/site_image";

@@ -1,6 +1,5 @@
 import { blogLoader } from "@/lib/source";
-import { promises as fs } from "fs";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import Link from "next/link";
 import { JSX } from "react";
@@ -23,8 +22,7 @@ export default async function BlogPreview(
     return <></>;
   }
 
-  const filePath = blogPost.data._file.absolutePath;
-  let contents = await fs.readFile(filePath, { encoding: "utf-8" });
+  let contents = await blogPost.data.getText("raw");
   contents = contents.split("---")[2];
   // get everything before the {/* truncate */} comment
   const preview = contents.split("{/* truncate */}")[0];

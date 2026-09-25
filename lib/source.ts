@@ -3,9 +3,9 @@ import {
   docsCollection,
   pagesCollection,
   teamCollection,
-} from "@/.source";
+} from "@/.source/server";
 import { loader } from "fumadocs-core/source";
-import { createMDXSource } from "fumadocs-mdx";
+import { toFumadocsSource } from "fumadocs-mdx/runtime/server";
 
 // `loader()` also assign a URL to your pages
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
@@ -16,17 +16,17 @@ export const docsLoader = loader({
 
 export const blogLoader = loader({
   baseUrl: "/blog",
-  source: createMDXSource(blogCollection),
+  source: toFumadocsSource(blogCollection, []),
 });
 
 export const teamLoader = loader({
   baseUrl: "/team",
-  source: createMDXSource(teamCollection),
+  source: toFumadocsSource(teamCollection, []),
 });
 
 export const pagesLoader = loader({
   baseUrl: "/", // be careful not to override used root url's with pages content
-  source: createMDXSource(pagesCollection),
+  source: toFumadocsSource(pagesCollection, []),
 });
 
 /*

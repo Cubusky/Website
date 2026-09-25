@@ -1,12 +1,17 @@
 import { existsSync } from "fs";
 import fs from "fs/promises";
-import { cn } from "fumadocs-ui/components/api";
-import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { cn } from "cn";
+import { ImageZoom as ImageZoomBase } from "fumadocs-ui/components/image-zoom";
 import { getImageSize } from "next/dist/server/image-optimizer";
 import Image from "next/image";
 import { join } from "path";
-import { JSX } from "react";
+import { ComponentProps, ComponentType, JSX } from "react";
 import "server-only";
+
+// fumadocs-core's framework-agnostic `ImageProps` dropped `quality`, but it's still forwarded to `next/image` at runtime.
+const ImageZoom = ImageZoomBase as ComponentType<
+  ComponentProps<typeof ImageZoomBase> & { quality?: number }
+>;
 
 interface SiteImageProps {
   src: any;

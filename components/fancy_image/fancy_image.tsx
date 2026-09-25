@@ -1,4 +1,4 @@
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import { JSX } from "react";
 import "server-only";
 import { SiteImageZoom } from "../site_image/site_image";

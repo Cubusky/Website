@@ -1,5 +1,5 @@
 import { site } from "@/app/global";
-import { cn } from "fumadocs-ui/components/api";
+import { cn } from "cn";
 import { JSX, Suspense, use } from "react";
 import "server-only";
 import style from "./discord_invite.module.css";

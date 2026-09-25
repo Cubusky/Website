@@ -42,7 +42,7 @@ export default async function Page(props: {
   const Mdx = page.data.body;
 
   return (
-    <main className="mt-12 lg:mt-0">
+    <main>
       <DocsLayout
         tree={{ name: "", children: [] }}
         nav={{ enabled: false }}
@@ -52,9 +52,7 @@ export default async function Page(props: {
           // toc={page.data.toc}
           tableOfContentPopover={{ enabled: false }}
           full={false}
-          container={{
-            className: "max-w-none w-full",
-          }}
+          className="max-w-none w-full"
         >
           <DocsTitle>{page.data.title}</DocsTitle>
           <DocsDescription className="block ">

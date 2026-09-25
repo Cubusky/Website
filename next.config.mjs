@@ -5,6 +5,8 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  // Don't auto-generate AGENTS.md / CLAUDE.md in dev.
+  agentRules: false,
 };
 
 export default withMDX(config);

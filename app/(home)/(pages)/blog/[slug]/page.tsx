@@ -66,9 +66,7 @@ export default async function Page(props: {
           toc={blogPost.data.toc}
           tableOfContentPopover={{ enabled: false }}
           full={false}
-          container={{
-            className: "max-w-sm md:max-w-xl lg:max-w-3xl pr-4 mx-auto",
-          }}
+          className="max-w-sm md:max-w-xl lg:max-w-3xl pr-4 mx-auto"
         >
           <DocsTitle>{blogPost.data.title}</DocsTitle>
           <DocsDescription className="block mb-0">

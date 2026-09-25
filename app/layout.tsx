@@ -1,6 +1,6 @@
 import ClientGoogleAnalytics from "@/components/client_google_analytics/client_google_analytics";
 import "@/style/global.css";
-import { RootProvider } from "fumadocs-ui/provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 import { Metadata } from "next";
 import { Catamaran } from "next/font/google";
 import type { ReactNode } from "react";
