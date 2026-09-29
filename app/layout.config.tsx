@@ -1,7 +1,7 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { FaGithub } from "react-icons/fa";
 
 export const baseOptions: BaseLayoutProps = {
+  githubUrl: "https://github.com/Cubusky/",
   nav: {
     title: (
       <>
@@ -33,16 +33,6 @@ export const baseOptions: BaseLayoutProps = {
     {
       text: "Licenses",
       url: "/license",
-    },
-    // `secondary: true` places it in the right-hand group next to the search bar (see global.css for keeping it visible at all widths).
-    {
-      type: "icon",
-      url: "https://github.com/Cubusky/",
-      external: true,
-      icon: <FaGithub className="size-4" />,
-      text: "GitHub",
-      label: "GitHub",
-      secondary: true,
     },
   ],
 };

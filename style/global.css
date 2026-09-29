@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/purple.css";
 @import "fumadocs-ui/css/preset.css";
 @import "./theme.css";
 
@@ -79,6 +79,25 @@ h6 a {
 /* GitHub link is now always shown directly, so hide the now-redundant overflow menu button. */
 #nd-nav button[aria-label="Toggle Menu"] {
   display: none !important;
+}
+
+/* Below the "lg" breakpoint, the GitHub link's wrapper is normally hidden in favor of the
+   overflow menu. Unwrap it so the link stays visible, but keep the full search bar hidden
+   since the compact search button (in the mobile row) already covers that. */
+@media not (min-width: 64rem) {
+  #nd-nav .max-lg\:hidden {
+    display: contents;
+  }
+
+  #nd-nav [data-search-full] {
+    display: none !important;
+  }
+
+  /* Pin the GitHub link to the far right, after the mobile search button. */
+  #nd-nav ul.empty\:hidden {
+    order: 1;
+    margin-inline-start: 0.375rem;
+  }
 }
 
 @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
