@@ -1,0 +1,120 @@
+.imageFrame {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max-content;
+  height: 100%;
+  translate: -50% 0;
+  filter: grayscale(1);
+  scale: 1;
+  transition: filter 0.333s, scale 0.333s;
+}
+
+.imageSlide {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+}
+
+.imageFrame:hover {
+  filter: grayscale(0.333);
+  scale: 1.02;
+}
+
+.imageEnter {
+  animation: image-enter 0.666s;
+}
+
+.imageExit {
+  pointer-events: none;
+  animation: image-exit 0.666s forwards;
+}
+
+.imageSliderButton {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.333s;
+  backdrop-filter: blur(16px);
+}
+
+.imageSliderButton:hover {
+  opacity: 1;
+}
+
+.imageSliderButton[aria-label="Next slide"] {
+  top: 0;
+  right: 0;
+  margin-right: -1px;
+  mask-image: linear-gradient(to left, black, transparent);
+}
+
+.imageSliderButton[aria-label="Previous slide"] {
+  top: 0;
+  left: 0;
+  margin-left: -1px;
+  mask-image: linear-gradient(to right, black, transparent);
+}
+
+.slideContent {
+  position: relative;
+}
+
+.contentEnter {
+  animation: content-enter 0.666s;
+}
+
+.contentExit {
+  animation: content-exit 0.333s forwards;
+}
+
+@keyframes image-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes image-exit {
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes content-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageEnter,
+  .imageExit,
+  .contentEnter,
+  .contentExit {
+    animation-duration: 1ms;
+  }
+}

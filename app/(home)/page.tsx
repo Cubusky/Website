@@ -6,6 +6,7 @@ import { getStats } from "@/components/github_card/github_client";
 import Hero from "@/components/hero/hero";
 import SiteFooter from "@/components/site_footer/site_footer";
 import SiteImage from "@/components/site_image/site_image";
+import ImageSlider from "@/components/image_slider/image_slider";
 import { friends } from "@/data/friends";
 import GameDemoInGame from "@/public/img/game_demo/in_game.webp";
 import { getBlogs } from "@/utils/get_blogs";
@@ -21,6 +22,47 @@ export default async function HomePage(): Promise<JSX.Element> {
 
   return (
     <main className="flex flex-1 flex-col justify-start text-center px-0 overflow-x-clip">
+      <div className="flex flex-col w-full items-center justify-center"
+        style={{
+          paddingBottom: "calc(var(--spacing) * 6)",
+          minHeight: "calc(100svh - calc(var(--spacing) * 6))",
+        }}
+      >
+        <ImageSlider
+          slides={[
+            {
+              src: "/img/splash/dawn_blade.png",
+              title: "RPG Stats",
+              description: "Hitpoints, Stamina, and every other RPG stat",
+              style: { 
+                backgroundImage: "url('/img/splash/dawn_blade-small.jpg')",
+              }
+            },
+            {
+              src: "/img/splash/wilderness.png",
+              title: "Survival Stats",
+              description: "Hunger, Thirst, and every other survival stat",
+              style: { 
+                backgroundImage: "url('/img/splash/wilderness-small.jpg')",
+              }
+            },
+            {
+              src: "/img/splash/elements.png",
+              title: "Elements",
+              description: "Enhance your stats with elemental powers",
+              style: { 
+                backgroundImage: "url('/img/splash/elements-small.jpg')",
+              }
+            },
+            {
+              src: "/img/splash/emotions.jpg",
+              title: "Emotion Stats",
+              description: "Stats to simulate love, pain and acceptance",
+            },
+          ]}
+        />
+      </div>
+
       <Hero
         content={
           <>
