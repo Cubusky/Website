@@ -26,34 +26,6 @@ export default async function HomePage(): Promise<JSX.Element> {
           <>
             <h1 className="title font-bold text-4xl xl:text-5xl text-pretty lg:text-start text-[var(--logo-text)]">
               {site.title}
-              <br />
-              <div>
-                <a href={site.url} className="badge" target="_blank">
-                  <SiteImage
-                    className="inline-block mr-2 rounded-none"
-                    src="/img/badges/chickensoft_badge.svg"
-                    alt="Chickensoft badge"
-                  />
-                </a>
-                <a href={site.github.url} className="badge" target="_blank">
-                  <SiteImage
-                    className="inline-block mr-2 rounded-none"
-                    src="/img/badges/github_badge.svg"
-                    alt="GitHub badge"
-                  />
-                </a>
-                <a
-                  href={site.discord.inviteUrl}
-                  className="badge"
-                  target="_blank"
-                >
-                  <SiteImage
-                    className="inline-block mr-2 rounded-none"
-                    src="/img/badges/discord_badge.svg"
-                    alt="Discord badge"
-                  />
-                </a>
-              </div>
             </h1>
             <DiscordInvite className="sm:mx-auto md:mx-auto lg:mx-0" />
             <p className="subtitle mt-4 font-light text-2xl lg:text-2xl xl:text-3xl max-w-lg text-center lg:text-start lg:whitespace-nowrap z-[1]">
