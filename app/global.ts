@@ -50,9 +50,9 @@ export const site: SiteData = {
   previewImage: "/img/preview.png",
   gtag: "G-9WXTBSQCGL",
   discord: {
-    serverId: "862108653488963604",
-    inviteUrl: "https://discord.gg/MjA6HUzzAE",
-    inviteCode: "MjA6HUzzAE",
+    serverId: "1547843030915092532",
+    inviteUrl: "https://discord.gg/c979gvkHdb",
+    inviteCode: "c979gvkHdb",
     fallbackNumMembersOnline: -1,
     fallbackNumMembers: -1,
     image: "/img/cubusky/cubusky.png",
