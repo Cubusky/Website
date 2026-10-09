@@ -29,6 +29,7 @@ export default async function HomePage(): Promise<JSX.Element> {
         }}
       >
         <ImageSlider
+          autoAdvanceIntervalSeconds={6.666}
           slides={[
             {
               src: "/img/splash/dawn_blade.png",
@@ -36,7 +37,11 @@ export default async function HomePage(): Promise<JSX.Element> {
               description: "Hitpoints, Stamina, and every other RPG stat",
               style: { 
                 backgroundImage: "url('/img/splash/dawn_blade-small.jpg')",
-              }
+              },
+              button: {
+                text: "Download for Free",
+                url: "/404",
+              },
             },
             {
               src: "/img/splash/wilderness.png",
@@ -44,7 +49,11 @@ export default async function HomePage(): Promise<JSX.Element> {
               description: "Hunger, Thirst, and every other survival stat",
               style: { 
                 backgroundImage: "url('/img/splash/wilderness-small.jpg')",
-              }
+              },
+              button: {
+                text: "Buy Survival Stats",
+                url: "/404",
+              },
             },
             {
               src: "/img/splash/elements.png",
@@ -52,12 +61,20 @@ export default async function HomePage(): Promise<JSX.Element> {
               description: "Enhance your stats with elemental powers",
               style: { 
                 backgroundImage: "url('/img/splash/elements-small.jpg')",
+              },
+              button: {
+                text: "Buy Elements",
+                url: "/404",
               }
             },
             {
               src: "/img/splash/emotions.jpg",
               title: "Emotion Stats",
               description: "Stats to simulate love, pain and acceptance",
+              button: {
+                text: "Buy Emotion Stats",
+                url: "/404",
+              },
             },
           ]}
         />

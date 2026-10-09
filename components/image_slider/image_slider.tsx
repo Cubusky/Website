@@ -1,7 +1,9 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, usePresence } from "framer-motion";
+import { buttonVariants } from "fumadocs-ui/components/ui/button";
+import { createTimer } from "../../utils/timer";
 import style from "./image_slider.module.css";
 
 interface ImageSlide {
@@ -9,11 +11,16 @@ interface ImageSlide {
   title: string;
   description: string;
   style?: React.CSSProperties;
+  button?: {
+    text: string;
+    url: string;
+  }
 }
 
 interface ImageSliderProps {
-    background?: string;
-    slides?: ImageSlide[];
+  background?: string;
+  slides?: ImageSlide[];
+  autoAdvanceIntervalSeconds?: number;
 }
 
 interface PresenceProps {
@@ -24,6 +31,10 @@ interface PresenceProps {
 
 interface SlideImageProps extends PresenceProps {
   onPaginate: (direction: number) => void;
+}
+
+interface SlideContentProps extends PresenceProps {
+  onButtonHoverChange: (isHovered: boolean) => void;
 }
 
 function SlideImage(props: SlideImageProps) {
@@ -63,12 +74,12 @@ function SlideImage(props: SlideImageProps) {
   );
 }
 
-function SlideContent(props: PresenceProps) {
+function SlideContent(props: SlideContentProps) {
   const [isPresent, safeToRemove] = usePresence();
 
   return (
     <div
-      className={`${style.slideContent} ${isPresent ? style.contentEnter : style.contentExit}`}
+      className={`${isPresent ? style.contentEnter : style.contentExit}`}
       role="tabpanel"
       aria-hidden={!isPresent}
       aria-labelledby={props.headingId}
@@ -86,6 +97,18 @@ function SlideContent(props: PresenceProps) {
       >
         {props.slide.description}
       </p>
+      {props.slide.button && (
+        <a
+          href={props.slide.button.url}
+          onMouseEnter={() => props.onButtonHoverChange(true)}
+          onMouseLeave={() => props.onButtonHoverChange(false)}
+          className={buttonVariants({ 
+            variant: "default", 
+            className: "mt-16 text-2xl! px-4 py-2 transition duration-300 text-shadow-none pointer-events-auto" })}
+        >
+          {props.slide.button.text}
+        </a>
+      )}
     </div>
   );
 }
@@ -94,6 +117,7 @@ export function ImageSlider(
     props: ImageSliderProps
 ) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   const headingId = useId();
   const descriptionId = useId();
@@ -101,20 +125,34 @@ export function ImageSlider(
 
   const slides = props.slides ?? [];
   const slideCount = slides.length;
+  const autoAdvanceIntervalMs = (props.autoAdvanceIntervalSeconds ?? 5) * 1000;
+  const remainingTimeRef = useRef(autoAdvanceIntervalMs);
 
-  const paginate = (newDirection: number) => {
-    setCurrentIndex((prevIndex) => {
-      const nextIndex = prevIndex + newDirection;
-      if (nextIndex < 0) return slideCount - 1;
-      if (nextIndex >= slideCount) return 0;
-      return nextIndex;
-    });
-  };
+  useEffect(() => {
+    remainingTimeRef.current = autoAdvanceIntervalMs;
+    setIsButtonHovered(false);
+  }, [currentIndex, slideCount, autoAdvanceIntervalMs]);
 
-  const goToSlide = (index: number) => {
-    if (index === currentIndex) return;
-    setCurrentIndex(index);
-  };
+  useEffect(() => {
+    if (
+      slideCount < 2 ||
+      autoAdvanceIntervalMs <= 0 ||
+      !Number.isFinite(autoAdvanceIntervalMs) ||
+      isButtonHovered
+    ) {
+      return;
+    }
+
+    const time = remainingTimeRef.current || autoAdvanceIntervalMs;
+    const stop = createTimer(time, () => paginate(1));
+    return () => void (remainingTimeRef.current = stop());
+  }, [currentIndex, slideCount, autoAdvanceIntervalMs, isButtonHovered]);
+
+  const paginate = (newDirection: number) => 
+    setCurrentIndex((prevIndex) => (prevIndex + newDirection + slideCount) % slideCount);
+
+  const goToSlide = (index: number) =>
+    (index === currentIndex) ? undefined : setCurrentIndex(index);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     switch (event.key) {
@@ -145,7 +183,7 @@ export function ImageSlider(
 
   return (
     <div
-      className="contents"
+      className={`contents select-none ${style.carousel}`}
       role="group"
       aria-roledescription="carousel"
       aria-label="Design inspiration image carousel"
@@ -171,7 +209,7 @@ export function ImageSlider(
 
       {/* Content */}
       <div
-        className="p-8"
+        className={`p-8 absolute text-shadow-lg/65 text-shadow-fd-background pointer-events-none ${style.contentOverlay}`}
         role="tablist"
         aria-label="Slide navigation"
         id={tablistId}
@@ -183,6 +221,7 @@ export function ImageSlider(
               slide={slides[currentIndex]}
               headingId={`${headingId}-${currentIndex}`}
               descriptionId={`${descriptionId}-${currentIndex}`}
+              onButtonHoverChange={setIsButtonHovered}
             />
           )}
         </AnimatePresence>
