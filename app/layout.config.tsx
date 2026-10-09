@@ -5,11 +5,11 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <>
-        <div id="cubusky" />
+        <div id="cubusky-nav-logo" />
         <div className="text-pop superpop">
           <span
-            id="cubusky-text"
-            className="text-xl text-[var(--logo-text)] font-semibold"
+            id="cubusky-nav-text"
+            className="text-xl text-(--logo-text) font-semibold"
           >
             Cubusky
           </span>
@@ -31,8 +31,8 @@ export const baseOptions: BaseLayoutProps = {
       url: "/about",
     },
     {
-      text: "Licenses",
-      url: "/license",
+      text: "Licensing",
+      url: "/licensing",
     },
   ],
 };

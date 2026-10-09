@@ -119,7 +119,7 @@ h6 a {
     text-shadow: 0 4px 0.2rem rgba(var(--shadow-color), 0.3);
   }
 
-  #cubusky-text:hover {
+  #cubusky-nav-text:hover {
     background: linear-gradient(
       90deg,
       var(--logo-text),
@@ -140,7 +140,7 @@ h6 a {
   }
 }
 
-#cubusky {
+#cubusky-nav-logo {
   position: relative;
   width: calc(var(--spacing) * 22);
   aspect-ratio: 1 / 1;
@@ -151,7 +151,7 @@ h6 a {
   transition: bottom 0.33s;
 }
 
-#cubusky:hover {
+#cubusky-nav-logo:hover {
   bottom: calc(var(--spacing) * 2);
 }
 

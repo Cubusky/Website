@@ -110,8 +110,8 @@ export const site: SiteData = {
           title: "About",
         },
         {
-          url: "/license",
-          title: "Licenses",
+          url: "/licensing",
+          title: "Licensing",
         },
       ],
     },
