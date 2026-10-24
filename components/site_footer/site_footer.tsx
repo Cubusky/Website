@@ -2,7 +2,7 @@ import { site } from "@/app/global";
 import { cn } from "cn";
 import Link from "next/link";
 import { JSX } from "react";
-import ChickenContainer from "../chicken_container/chicken_container";
+import CubuskyContainer from "../cubusky_container/cubusky_container";
 import SiteImage from "../site_image/site_image";
 
 export type SiteFooterProps = {
@@ -19,7 +19,7 @@ export default function SiteFooter(props: SiteFooterProps): JSX.Element {
       )}
     >
       {/* Footer Container */}
-      <ChickenContainer className="">
+      <CubuskyContainer className="">
         <div className="my-8 mx-8 flex flex-col items-start justify-center lg:justify-start gap-4">
           <section className="flex flex-row justify-between grow gap-4 self-stretch flex-wrap">
             <section className="flex flex-row gap-4">
@@ -70,7 +70,7 @@ export default function SiteFooter(props: SiteFooterProps): JSX.Element {
             </div>
           </div>
         </div>
-      </ChickenContainer>
+      </CubuskyContainer>
     </footer>
   );
 }

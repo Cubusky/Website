@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import ChickenContainer from "../chicken_container/chicken_container";
+import CubuskyContainer from "../cubusky_container/cubusky_container";
 
 export default function Hero({
   content,
@@ -9,7 +9,7 @@ export default function Hero({
   graphic: JSX.Element;
 }): JSX.Element {
   return (
-    <ChickenContainer fade="right">
+    <CubuskyContainer fade="right">
       <div className="max-w-screen-xl mx-auto md:pl-8 lg:pl-8 2xl:pl-0">
         <div className="grid grid-cols-8 place-items-center relative">
           <div className="hero-contents lg:ml-8 col-span-8 lg:col-span-3 mt-8 lg:mt-0 sm:text-center z-[5]">
@@ -20,6 +20,6 @@ export default function Hero({
           </div>
         </div>
       </div>
-    </ChickenContainer>
+    </CubuskyContainer>
   );
 }
