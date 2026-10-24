@@ -43,10 +43,10 @@ export type FooterCategory = {
 
 export const site: SiteData = {
   url: "https://cubusky.code/",
-  logo: "/img/cubusky/cubusky.png",
+  logo: "/img/cubusky/CubuskyLogo_cs.svg",
   title: "Cubusky",
   subtitle: "Tools for C# Game Development.",
-  description: "Cubusky is a company primarily focused on tools for C# game development and -consultancy.",
+  description: "Cubusky is a company primarily focused on tools for C# game development and consultancy.",
   previewImage: "/img/preview.png",
   gtag: "G-9WXTBSQCGL",
   discord: {
@@ -55,7 +55,7 @@ export const site: SiteData = {
     inviteCode: "c979gvkHdb",
     fallbackNumMembersOnline: -1,
     fallbackNumMembers: -1,
-    image: "/img/cubusky/cubusky.png",
+    image: "/img/cubusky/CubuskyLogo_cs.svg",
     title: "🐾 Cubusky",
   },
   github: {
@@ -73,7 +73,6 @@ export const site: SiteData = {
     "game engine",
     "indie game development",
     "open source",
-    "foss",
     "programming language",
     "game development",
     "scripting",
@@ -91,7 +90,17 @@ export const site: SiteData = {
     "unity",
     "unity engine",
     "unity alternative",
-    "game design",
+    "Cubusky",
+    "Chickensoft",
+    "2dog",
+    "twodog",
+    "C# tools",
+    "game development tools",
+    "game development frameworks",
+    "consultancy",
+    "C# consultancy",
+    "game development consultancy",
+    "game development tools consultancy",
   ],
   footerLinks: [
     {

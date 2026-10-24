@@ -147,7 +147,7 @@ h6 a {
   bottom: calc(var(--spacing) * -3);
   pointer-events: all;
   background-size: cover;
-  background-image: url("/img/cubusky/cubusky.png");
+  background-image: url("/img/cubusky/CubuskyLogo_cs.svg");
   transition: bottom 0.33s;
 }
 

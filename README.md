@@ -7,7 +7,7 @@ The official [Cubusky Website](https://cubusky.code).
 ---
 
 <p align="center">
-<img alt="Cubusky Site Logo" src="public/img/cubusky/cubusky.png" width="200">
+<img alt="Cubusky Site Logo" src="public/img/cubusky/CubuskyLogo_cs.svg" width="200">
 </p>
 
 This is a Next.js application generated with
