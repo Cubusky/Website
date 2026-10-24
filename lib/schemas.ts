@@ -1,4 +1,5 @@
 import { frontmatterSchema } from "fumadocs-mdx/config";
+import type { MDXContent } from "mdx/types";
 import { z } from "zod";
 
 const teamCategoriesSchema = z.enum(["admin", "mod", "software"]);
@@ -7,6 +8,8 @@ export const teamSchema = frontmatterSchema.extend({
   author_id: z.string(),
   category: teamCategoriesSchema,
   image: z.string(),
+  expertise: z.string().array().optional(),
+  email: z.string().optional(),
   bsky_url: z.string().optional(),
   mastodon_url: z.string().optional(),
   discord_user: z.string().optional(),
@@ -33,7 +36,9 @@ export const docsSchema = frontmatterSchema.extend({
 });
 
 // https://www.allthingstypescript.dev/p/using-zod-schemas-as-source-of-truth
-export type TeamMember = z.infer<typeof teamSchema>;
+export type TeamMember = z.infer<typeof teamSchema> & {
+  body?: MDXContent;
+};
 export type TeamMemberWithUrl = TeamMember & {
   url: string;
 };

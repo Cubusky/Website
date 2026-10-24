@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaMastodon,
   FaTwitch,
+  FaEnvelope,
 } from "react-icons/fa";
 import { SiBluesky } from "react-icons/si";
 
@@ -21,6 +22,11 @@ export default function Socials(props: SocialsProps): JSX.Element {
   const size = 24;
 
   const socials = [
+    {
+      url: teamMember.email && `mailto:${teamMember.email}`,
+      icon: <FaEnvelope size={size} />,
+      label: "Email",
+    },
     {
       url:
         teamMember.github_user &&
@@ -65,7 +71,7 @@ export default function Socials(props: SocialsProps): JSX.Element {
           href={social.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-fd-accent-foreground)] hover:text-[var(--color-fd-primary)] superpop"
+          className="text-(--color-fd-accent-foreground) hover:text-(--color-fd-primary) superpop"
           aria-label={social.label}
         >
           {social.icon}
