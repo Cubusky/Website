@@ -22,6 +22,10 @@ npm run dev
 
 Open <http://localhost:3000> with your browser to see the result.
 
+### Frontmatter schema changes
+
+After changing a frontmatter schema in `lib/schemas.ts`, restart the development server. Fumadocs watches `source.config.ts`, but not the schema files it imports. If fields are still missing, stop the server, remove `.next/dev/cache/turbopack`, and run `npm run dev` again to recompile cached MDX content.
+
 ## Contributing
 
 If you're adding more than just documentation, it would help to be familiar with Next.js and Fumadocs:
