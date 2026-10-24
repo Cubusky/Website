@@ -7,8 +7,12 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  --logo-text: #7456dd;
-  --logo-text-shimmer: #927ae4;
+  --themecolor-light: hsl(252, 69, 69);
+  --themecolor-dark: hsl(252, 67, 52);
+  --themecolor-mid: color-mix(in hsl, var(--themecolor-light), var(--themecolor-dark));
+
+  --logo-text: var(--themecolor-mid);
+  --logo-text-shimmer: var(--themecolor-light);
 
   --tip-bg: #dff6ddff;
   --tip-fg: #0f7b0fff;
@@ -33,8 +37,8 @@
 }
 
 .dark {
-  --logo-text: #927ae4;
-  --logo-text-shimmer: #7456dd;
+  --logo-text: var(--themecolor-light);
+  --logo-text-shimmer: var(--themecolor-mid);
 
   --tip-bg: #393d1bff;
   --tip-fg: #6ccb5fff;
