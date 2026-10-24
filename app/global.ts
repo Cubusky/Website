@@ -127,129 +127,14 @@ export const site: SiteData = {
   ],
   githubPackages: [
     {
-      owner: "chickensoft-games",
-      repo: "GameDemo",
-      logo: "/img/chickensoft/game_demo.png",
+      owner: "cubusky",
+      repo: "BuildingBlocks",
+      logo: "/img/cubusky/placeholder.png",
     },
     {
-      owner: "chickensoft-games",
-      repo: "LogicBlocks",
-      logo: "/img/chickensoft/logic_blocks.png",
+      owner: "cubusky",
+      repo: "Stats",
+      logo: "/img/cubusky/placeholder.png",
     },
-    {
-      owner: "chickensoft-games",
-      repo: "GodotEnv",
-      logo: "/img/chickensoft/godot_env.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Chicken",
-      logo: "/img/chickensoft/chicken.webp",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GodotGame",
-      logo: "/img/chickensoft/godot_game.webp",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Serialization",
-      logo: "/img/chickensoft/serialization.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Introspection",
-      logo: "/img/chickensoft/introspection.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GoDotTest",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "setup-godot",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "AutoInject",
-      logo: "/img/chickensoft/auto_inject.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Sync",
-      logo: "/img/chickensoft/sync.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Platform",
-      logo: "/img/chickensoft/platform.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GameTools",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "UMLGenerator",
-      logo: "/img/chickensoft/uml_generator.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "SaveFileBuilder",
-      logo: "/img/chickensoft/save_file_builder.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Serialization.Godot",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Log",
-      logo: "/img/chickensoft/log.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Log.Godot",
-      logo: "/img/chickensoft/log_godot.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "Collections",
-      logo: "/img/chickensoft/collections.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GodotTestDriver",
-      logo: "/img/chickensoft/godot_test_driver.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GodotPackage",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "PalettePainter",
-      logo: "/img/chickensoft/palette_painter.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "GodotNodeInterfaces",
-      logo: "/img/chickensoft/package.png",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "EditorConfig",
-      logo: "/img/chickensoft/editor_config.svg",
-    },
-    {
-      owner: "chickensoft-games",
-      repo: "chickensoft_site",
-      logo: "/img/chickensoft/chickensoft_site.svg",
-    },
-  ],
+  ]
 };
