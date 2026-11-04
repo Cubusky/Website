@@ -27,6 +27,13 @@
   scale: 1.02;
 }
 
+@media not (min-width: 64rem) {
+  .imageSlide {
+    filter: grayscale(0.333) blur(4px);
+    scale: 1.02;
+  }
+}
+
 .imageEnter .imageSlide {
   animation: image-enter 0.666s;
 }

@@ -1,0 +1,130 @@
+#nd-nav {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-secondary) 80%,
+    transparent
+  ) !important;
+
+  border-color: var(--color-fd-border) !important;
+}
+
+/* Subnav styling */
+#nd-subnav {
+  overflow: hidden;
+}
+
+/* Right-align the mobile menu items (the content is a flex column below "sm"). */
+[data-orientation]:has(> div > [role="separator"]) {
+  align-items: flex-end;
+  text-align: end;
+}
+
+#nd-nav ul.flex > li > a {
+  border-radius: 8px;
+}
+
+#nd-nav ul.flex > li > a:hover {
+  color: var(--color-fd-secondary-foreground) !important;
+  background-color: var(--color-fd-accent) !important;
+  border-radius: 8px;
+}
+
+@media not (min-width: 64rem) {
+  #nd-nav .max-lg\:hidden {
+    display: contents;
+  }
+
+  /* The compact search button in the mobile row already covers search. */
+  #nd-nav [data-search-full] {
+    display: none !important;
+  }
+
+  /* Unwrap the mobile row (search button + toggle) so all three can be ordered. */
+  #nd-nav div.lg\:hidden {
+    display: contents;
+  }
+
+  /* 1: compact search button, pushed to the right */
+  #nd-nav div.lg\:hidden > :first-child {
+    order: 1;
+    margin-inline-start: auto;
+  }
+
+  /* 2: theme switch + GitHub */
+  #nd-nav .max-lg\:hidden > * {
+    order: 2;
+  }
+
+  /* 3: toggle menu button */
+  #nd-nav div.lg\:hidden > :last-child {
+    order: 3;
+    margin-inline-end: -0.375rem;
+  }
+}
+
+[data-orientation] > div:has(> [role="separator"]) {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  #nd-nav button[aria-label="Toggle Menu"] {
+    display: none;
+  }
+}
+
+/* Cubusky logo styling */
+@property --cubusky-logo-mask-stop {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 69%;
+}
+
+#cubusky-nav-logo {
+  position: relative;
+  width: calc(var(--spacing) * 22);
+  aspect-ratio: 1 / 1;
+  bottom: calc(var(--spacing) * -3);
+  pointer-events: all;
+  background-size: cover;
+  background-image: url("/img/cubusky/CubuskyLogo_cs.svg");
+
+  --cubusky-logo-mask-stop: 69%;
+  mask-image: linear-gradient(
+    to bottom,
+    black var(--cubusky-logo-mask-stop),
+    transparent var(--cubusky-logo-mask-stop)
+  );
+  transition: bottom 0.33s, --cubusky-logo-mask-stop 0.33s;
+}
+
+#cubusky-nav-logo:hover {
+  bottom: calc(var(--spacing) * 2);
+  --cubusky-logo-mask-stop: 92%;
+}
+
+#nd-nav:has(button[aria-label="Toggle Menu"][data-state="open"]) #cubusky-nav-logo {
+  transition: bottom 0.33s, --cubusky-logo-mask-stop 0.08s;
+  --cubusky-logo-mask-stop: 100%;
+}
+
+@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+  #cubusky-nav-text:hover {
+    background: linear-gradient(
+      90deg,
+      var(--logo-text),
+      var(--logo-text-shimmer),
+      var(--logo-text),
+      var(--logo-text-shimmer)
+    );
+    background-size: 300%;
+    background-clip: text;
+    color: transparent;
+    background-position-x: 100%;
+    animation: shimmer 1s infinite linear;
+  }
+  @keyframes shimmer {
+    to {
+      background-position-x: 0%;
+    }
+  }
+}

@@ -2,11 +2,11 @@
 @import "fumadocs-ui/css/purple.css";
 @import "fumadocs-ui/css/preset.css";
 @import "./theme.css";
+@import "./nav.css";
 
 @source "../node_modules/fumadocs-ui/dist/**/*.js";
 
 :root {
-  --fd-nav-height: 100px !important;
   font-size: 18px;
 }
 
@@ -54,57 +54,7 @@ h6 a {
   padding-top: 0px !important;
 }
 
-#nd-nav {
-  background-color: color-mix(
-    in oklab,
-    var(--color-fd-secondary) 80%,
-    transparent
-  ) !important;
-
-  border-color: var(--color-fd-border) !important;
-
-  overflow-y: hidden;
-}
-
-#nd-subnav {
-  overflow: hidden;
-}
-
-#nd-nav ul.flex > li > a {
-  border-radius: 8px;
-}
-
-#nd-nav ul.flex > li > a:hover {
-  color: var(--color-fd-secondary-foreground) !important;
-  background-color: var(--color-fd-accent) !important;
-  border-radius: 8px;
-}
-
-/* GitHub link is now always shown directly, so hide the now-redundant overflow menu button. */
-#nd-nav button[aria-label="Toggle Menu"] {
-  display: none !important;
-}
-
-/* Below the "lg" breakpoint, the GitHub link's wrapper is normally hidden in favor of the
-   overflow menu. Unwrap it so the link stays visible, but keep the full search bar hidden
-   since the compact search button (in the mobile row) already covers that. */
-@media not (min-width: 64rem) {
-  #nd-nav .max-lg\:hidden {
-    display: contents;
-  }
-
-  #nd-nav [data-search-full] {
-    display: none !important;
-  }
-
-  /* Pin the GitHub link to the far right, after the mobile search button. */
-  #nd-nav ul.empty\:hidden {
-    order: 1;
-    margin-inline-start: 0.375rem;
-  }
-}
-
-@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
   .pop {
     transition: all 0.05s ease-out;
   }
@@ -122,41 +72,6 @@ h6 a {
   .text-pop:hover {
     text-shadow: 0 4px 0.2rem rgba(var(--shadow-color), 0.3);
   }
-
-  #cubusky-nav-text:hover {
-    background: linear-gradient(
-      90deg,
-      var(--logo-text),
-      var(--logo-text-shimmer),
-      var(--logo-text),
-      var(--logo-text-shimmer)
-    );
-    background-size: 300%;
-    background-clip: text;
-    color: transparent;
-    background-position-x: 100%;
-    animation: shimmer 1s infinite linear;
-  }
-  @keyframes shimmer {
-    to {
-      background-position-x: 0%;
-    }
-  }
-}
-
-#cubusky-nav-logo {
-  position: relative;
-  width: calc(var(--spacing) * 22);
-  aspect-ratio: 1 / 1;
-  bottom: calc(var(--spacing) * -3);
-  pointer-events: all;
-  background-size: cover;
-  background-image: url("/img/cubusky/CubuskyLogo_cs.svg");
-  transition: bottom 0.33s;
-}
-
-#cubusky-nav-logo:hover {
-  bottom: calc(var(--spacing) * 2);
 }
 
 /* Fixes an issue on the blog page when code blocks can be too large */
@@ -167,7 +82,7 @@ details {
   max-width: calc(var(--container-xl) + 30px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   #blog-content-frame {
     margin-top: 2rem !important;
   }
@@ -191,7 +106,7 @@ details {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   #nd-page {
     margin-top: 1rem !important;
   }

@@ -5,10 +5,7 @@ import type { ReactNode } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <HomeLayout
-      {...{
-        ...baseOptions,
-        themeSwitch: { mode: "light-dark-system", enabled: false },
-      }}
+      {...baseOptions}
     >
       {children}
     </HomeLayout>
