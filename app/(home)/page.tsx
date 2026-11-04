@@ -212,7 +212,7 @@ export default async function HomePage(): Promise<JSX.Element> {
               <Image
                 src={ChickensoftHero}
                 alt="Chickensoft Tools"
-                className="shadow-lg lg:min-w-full xlg:min-w-lg"
+                className="dark:shadow-lg lg:min-w-full xlg:min-w-lg"
               />
             </div>
           </div>
@@ -245,7 +245,7 @@ export default async function HomePage(): Promise<JSX.Element> {
               <Image
                 src={TwoDog}
                 alt="2Dog"
-                className="shadow-lg lg:min-w-full xlg:min-w-lg"
+                className="dark:shadow-lg lg:min-w-full xlg:min-w-lg"
               />
             </div>
           </div>

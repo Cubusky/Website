@@ -108,7 +108,7 @@ function SlideContent(props: SlideContentProps) {
           href={props.slide.url}
           onMouseEnter={() => props.onButtonHoverChange(true)}
           onMouseLeave={() => props.onButtonHoverChange(false)}
-          className={`${statusClassName} ${buttonVariants({ variant: "primary" })} pointer-events-auto`}
+          className={`${statusClassName} ${buttonVariants({ variant: "primary" })} not-dark:text-fd-secondary pointer-events-auto`}
         >
           {props.slide.status}
         </a>
@@ -217,7 +217,7 @@ export function ImageSlider(
 
       {/* Content */}
       <div
-        className={`p-8 absolute text-shadow-lg/65 text-shadow-fd-background pointer-events-none ${style.contentOverlay}`}
+        className={`p-8 absolute text-shadow-lg/5 dark:text-shadow-lg/65 pointer-events-none ${style.contentOverlay}`}
         role="tablist"
         aria-label="Slide navigation"
         id={tablistId}
