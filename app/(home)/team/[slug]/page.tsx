@@ -28,7 +28,7 @@ export function generateStaticParams(): { slug: string }[] {
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
-}) {
+}) : Promise<{ title: string; description?: string }> {
   const params = await props.params;
   const teamMember = teamLoader.getPage([params.slug]);
 

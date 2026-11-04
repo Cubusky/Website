@@ -450,7 +450,7 @@ function EmphasizedLink(props: {
         "bg-clip-text text-transparent bg-linear-to-r",
         "underline underline-offset-4",
         "hover:brightness-110 focus-visible:outline-none",
-        "rounded-[2px]",
+        "rounded-xs",
         props.className
       )}
     >
