@@ -1,3 +1,4 @@
+import SiteFooter from "@/components/site_footer/site_footer";
 import { TeamMemberProfile } from "@/components/team_member/team_member";
 import { teamLoader } from "@/lib/source";
 import { notFound } from "next/navigation";
@@ -14,6 +15,7 @@ export default async function Page(props: {
     <>
       <span className="mt-16"></span>
       <TeamMemberProfile teamMember={teamMember.data} />
+      <SiteFooter className="mt-32" />
     </>
   );
 }

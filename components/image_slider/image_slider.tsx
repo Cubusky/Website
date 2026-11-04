@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, usePresence } from "framer-motion";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi2";
 import { createTimer } from "../../utils/timer";
 import style from "./image_slider.module.css";
 
@@ -11,10 +12,8 @@ interface ImageSlide {
   title: string;
   description: string;
   style?: React.CSSProperties;
-  button?: {
-    text: string;
-    url: string;
-  }
+  status: string;
+  url?: string;
 }
 
 interface ImageSliderProps {
@@ -45,7 +44,7 @@ function SlideImage(props: SlideImageProps) {
       className={`${style.imageFrame} ${isPresent ? style.imageEnter : style.imageExit}`}
       aria-hidden={!isPresent}
       onAnimationEnd={(event) => {
-        if (!isPresent && event.target === event.currentTarget) safeToRemove?.();
+        if (!isPresent && event.target === event.currentTarget.firstElementChild) safeToRemove?.();
       }}
     >
       <img
@@ -58,24 +57,31 @@ function SlideImage(props: SlideImageProps) {
         aria-describedby={props.descriptionId}
         aria-labelledby={props.headingId}
       />
+      
       <button
         type="button"
         onClick={() => props.onPaginate(-1)}
-        className={style.imageSliderButton}
         aria-label="Previous slide"
-      />
+        className={style.imageSliderButton}
+      >
+        <HiChevronDoubleLeft aria-hidden="true" className="text-xl sm:text-3xl md:text-5xl text-fd-foreground lg:hidden" />
+      </button>
+
       <button
         type="button"
         onClick={() => props.onPaginate(1)}
-        className={style.imageSliderButton}
         aria-label="Next slide"
-      />
+        className={style.imageSliderButton}
+      >
+        <HiChevronDoubleRight aria-hidden="true" className="text-xl sm:text-3xl md:text-5xl text-fd-foreground lg:hidden" />
+      </button>
     </div>
   );
 }
 
 function SlideContent(props: SlideContentProps) {
   const [isPresent, safeToRemove] = usePresence();
+  const statusClassName = "mt-16 text-sm sm:text-base md:text-lg lg:text-xl! xl:text-2xl! px-4 py-2 transition duration-300 text-shadow-none";
 
   return (
     <div
@@ -87,27 +93,29 @@ function SlideContent(props: SlideContentProps) {
         if (!isPresent && event.target === event.currentTarget) safeToRemove?.();
       }}
     >
-      <h2 id={props.headingId} className="text-8xl font-semibold text-foreground mb-2">
+      <h2 id={props.headingId} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-foreground mb-2">
         {props.slide.title}
       </h2>
       <p
         id={props.descriptionId}
-        className="text-muted-foreground text-4xl leading-relaxed"
+        className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-relaxed"
         aria-live="polite"
       >
         {props.slide.description}
       </p>
-      {props.slide.button && (
+      {props.slide.url ? (
         <a
-          href={props.slide.button.url}
+          href={props.slide.url}
           onMouseEnter={() => props.onButtonHoverChange(true)}
           onMouseLeave={() => props.onButtonHoverChange(false)}
-          className={buttonVariants({ 
-            variant: "default", 
-            className: "mt-16 text-2xl! px-4 py-2 transition duration-300 text-shadow-none pointer-events-auto" })}
+          className={`${statusClassName} ${buttonVariants({ variant: "primary" })} pointer-events-auto`}
         >
-          {props.slide.button.text}
+          {props.slide.status}
         </a>
+      ) : (
+        <span className={`${statusClassName} ${buttonVariants({ variant: "secondary" })} pointer-events-none`}>
+          {props.slide.status}
+        </span>
       )}
     </div>
   );

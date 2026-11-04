@@ -13,6 +13,7 @@ export type SiteData = {
   keywords: string[];
   footerLinks: FooterCategory[];
   githubPackages: GithubCardProps[];
+  quotes: Quote[];
 };
 
 export type DiscordData = {
@@ -34,6 +35,12 @@ export type GithubData = {
 export type FooterLink = {
   url: string;
   title: string;
+};
+
+export type Quote = {
+  text: string;
+  person: string;
+  link?: string;
 };
 
 export type FooterCategory = {
@@ -135,6 +142,17 @@ export const site: SiteData = {
       owner: "cubusky",
       repo: "Stats",
       logo: "/img/cubusky/placeholder.png",
+    },
+    {
+      owner: "cubusky",
+      repo: "Website",
+      logo: "/img/cubusky/placeholder.png",
+    }
+  ],
+  quotes: [
+    {
+      text: "Casey is like a steam train: once they get going, they're hard to stop.",
+      person: "Fee van Brummelen"
     },
   ]
 };

@@ -3,27 +3,20 @@ import CubuskyContainer from "@/components/cubusky_container/cubusky_container";
 import DiscordInvite from "@/components/discord_invite/discord_invite";
 import Emphasized from "@/components/emphasized/emphasized";
 import GithubCard from "@/components/github_card/github_card";
-import { getStats } from "@/components/github_card/github_client";
-import Hero from "@/components/hero/hero";
 import SiteFooter from "@/components/site_footer/site_footer";
-import SiteImage from "@/components/site_image/site_image";
 import ImageSlider from "@/components/image_slider/image_slider";
 import { TeamMemberProfile, TeamMemberCard } from "@/components/team_member/team_member";
-import { friends } from "@/data/friends";
 import ChickensoftHero from "@/public/img/creators/chickensoft.webp";
 import TwoDog from "@/public/img/creators/2dog.svg";
 import { getBlogs } from "@/utils/get_blogs";
 import { teamLoader } from "@/lib/source";
 import { cn } from "cn";
-import millify from "millify";
 import Image from "next/image";
 import Link from "next/link";
 import { JSX } from "react";
 import { site } from "../global";
 
 export default async function HomePage(): Promise<JSX.Element> {
-  const stats = await getStats(site.githubPackages);
-
   return (
     <main className="flex flex-1 flex-col justify-start text-center px-0 overflow-x-clip">
       <div className="flex flex-col w-full items-center justify-center"
@@ -36,50 +29,55 @@ export default async function HomePage(): Promise<JSX.Element> {
           autoAdvanceIntervalSeconds={6.666}
           slides={[
             {
+              src: "/img/splash/building_blocks.png",
+              title: "Building Blocks",
+              description: "Highly Performant Command Pattern for C#",
+              style: { 
+                backgroundImage: "url('/img/splash/building_blocks-small.jpg')",
+              },
+              status: "Download for Free",
+              url: "https://github.com/Cubusky/BuildingBlocks",
+            },
+            {
               src: "/img/splash/dawn_blade.png",
               title: "RPG Stats",
-              description: "Hitpoints, Stamina, and every other RPG stat",
+              description: "Powerful Stats to start your Adventure",
               style: { 
                 backgroundImage: "url('/img/splash/dawn_blade-small.jpg')",
               },
-              button: {
-                text: "Download for Free",
-                url: "/404",
-              },
+              status: "Download for Free",
+              url: "https://github.com/Cubusky/Stats",
             },
-            {
-              src: "/img/splash/wilderness.png",
-              title: "Survival Stats",
-              description: "Hunger, Thirst, and every other survival stat",
-              style: { 
-                backgroundImage: "url('/img/splash/wilderness-small.jpg')",
-              },
-              button: {
-                text: "Buy Survival Stats",
-                url: "/404",
-              },
-            },
+            // {
+            //   src: "/img/splash/wilderness.png",
+            //   title: "Survival Stats",
+            //   description: "Hunger, Thirst, and every other survival stat",
+            //   style: { 
+            //     backgroundImage: "url('/img/splash/wilderness-small.jpg')",
+            //   },
+            //   button: {
+            //     text: "Buy Survival Stats",
+            //     url: "/404",
+            //   },
+            // },
             {
               src: "/img/splash/elements.png",
               title: "Elements",
-              description: "Enhance your stats with elemental powers",
+              description: "Enhance your stats with Elemental Prowess",
               style: { 
                 backgroundImage: "url('/img/splash/elements-small.jpg')",
               },
-              button: {
-                text: "Buy Elements",
-                url: "/404",
-              }
+              status: "Coming Soon"
             },
-            {
-              src: "/img/splash/emotions.jpg",
-              title: "Emotion Stats",
-              description: "Stats to simulate love, pain and acceptance",
-              button: {
-                text: "Buy Emotion Stats",
-                url: "/404",
-              },
-            },
+            // {
+            //   src: "/img/splash/emotions.jpg",
+            //   title: "Emotion Stats",
+            //   description: "Stats to simulate love, pain and acceptance",
+            //   button: {
+            //     text: "Buy Emotion Stats",
+            //     url: "/404",
+            //   },
+            // },
           ]}
         />
       </div>
@@ -137,52 +135,54 @@ export default async function HomePage(): Promise<JSX.Element> {
         </section>
       </CubuskyContainer> */}
 
-      <CubuskyContainer preserve={true}>
+      <CubuskyContainer preserve={true} className="relative">
         <CubuskyContainer fade={"both"}>
-          <section className="mt-16 py-4 border-t border-b border-fd-border bg-fd-muted">
+          <section className="mt-16 px-8 py-4 border-t border-b border-fd-border bg-fd-muted">
             <h1 className="text-2xl md:text-3xl lg:text-4xl">
-              <Emphasized>Tools for your Team</Emphasized>
+              <Emphasized>Consult a Game Architect</Emphasized>
             </h1>
+            <p className="text-lg mt-2">We provide expert guidance for your game development projects.</p>
           </section>
         </CubuskyContainer>
 
-        <div className="grid w-[100%] grid-cols-12 mt-16 gap-4 lg:gap-14 lg:px-8">
-          <div className="col-span-12 lg:col-span-5">
-            <div className="max-w-lg mx-auto">
+        <section className="grid grid-cols-1 gap-4 lg:gap-6 xl:gap-8 mt-16 mx-16">
+          {teamLoader.getPages().map((teamMember) => (
+            <TeamMemberCard 
+              key={teamMember.slugs[0]} 
+              teamMember={{...teamMember.data, url: teamMember.url}}>
+            </TeamMemberCard>
 
-              <GithubCard
-                owner="chickensoft-games"
-                repo="GameDemo"
-                logo="/img/chickensoft/game_demo.png"
-                className="mt-8"
-              />
+            // <TeamMemberProfile
+            //   key={teamMember.slugs[0]}
+            //   teamMember={teamMember.data}
+            // />
+          ))}
+        </section>
 
-              <Quote className="mt-10 lg:mt-18">
-                I think the most impressive thing is how consistent everything
-                is.
+      </CubuskyContainer>
+
+      {/* <CubuskyContainer preserve={true}>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-16">
+          What others have to say
+        </h1>
+
+        <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-6 mt-16 mx-8">
+          {site.quotes.map((quote, index) => (
+            <div key={index} className="flex flex-col">
+              <Quote person={quote.person}>
+                {quote.text}
               </Quote>
             </div>
-          </div>
-          <div className="col-span-12 lg:col-span-7">
-            <FeatureText>
-              <p>
-                The <Emphasized>Chickensoft Game Demo</Emphasized> is a 3D,
-                open source game built with Godot and C#.
-              </p>
-              <br />
-              <p>
-                Read about our approach to{" "}
-                <Emphasized>Enjoyable Game Architecture</Emphasized>.
-              </p>
-            </FeatureText>
-            <BlogPreview
-              slug="game-architecture"
-              className="max-w-lg mx-auto lg:mx-0 lg:max-w-full"
-            />
-          </div>
-        </div>
+          ))}
+        </section>
+      </CubuskyContainer> */}
 
-        <section className="grid grid-cols-1  gap-4 lg:gap-6 xl:gap-8 mt-16">
+      <CubuskyContainer preserve={true}>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl mt-16 mx-8">
+          ...or check out our <Emphasized>Open Source Tools</Emphasized>
+        </h1>
+
+        <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-6 mt-16 mx-8">
           {site.githubPackages.map((pkg) => (
             <div
               className="flex flex-row items-stretch justify-center"
@@ -192,31 +192,6 @@ export default async function HomePage(): Promise<JSX.Element> {
                 <GithubCard {...pkg} className="my-0 min-w-full h-full" />
               </div>
             </div>
-          ))}
-        </section>
-      </CubuskyContainer>
-
-      <CubuskyContainer preserve={true} className="relative">
-        <CubuskyContainer fade={"both"}>
-          <section className="mt-16 py-4 border-t border-b border-fd-border bg-fd-muted">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl">
-              <Emphasized>Consult a Game Architect</Emphasized>
-            </h1>
-            <p className="text-lg mt-2">We provide expert guidance for your game development projects.</p>
-          </section>
-        </CubuskyContainer>
-
-        <section className="grid grid-cols-1 gap-4 lg:gap-6 xl:gap-8 mt-16">
-          {teamLoader.getPages().map((teamMember) => (
-            // <TeamMemberCard 
-            //   key={teamMember.slugs[0]} 
-            //   teamMember={{...teamMember.data, url: teamMember.url}}>
-            // </TeamMemberCard>
-
-            <TeamMemberProfile
-              key={teamMember.slugs[0]}
-              teamMember={teamMember.data}
-            />
           ))}
         </section>
       </CubuskyContainer>
@@ -231,7 +206,7 @@ export default async function HomePage(): Promise<JSX.Element> {
         </CubuskyContainer>
 
         {/* Chickensoft Tools Section */}
-        <div className="grid w-full grid-cols-12 mt-16 gap-4 lg:gap-14 lg:px-8 place-items-center">
+        <div className="grid grid-cols-12 mt-16 gap-4 lg:gap-14 lg:px-8 place-items-center mx-8">
           <div className="col-span-12 lg:col-span-5">
             <div className="max-w-lg mx-auto">
               <Image
@@ -246,8 +221,6 @@ export default async function HomePage(): Promise<JSX.Element> {
             <FeatureText>
               <p>
                 <Emphasized>Chickensoft</Emphasized> is a volunteer organization dedicated to empowering game developers by building open source tools for the <Emphasized>C# programming language.</Emphasized>
-
-                {/* The <Emphasized>Chickensoft Tools</Emphasized> are a suite of open source utilities designed to streamline game development. */}
               </p>
               <br />
               <p>
@@ -266,7 +239,7 @@ export default async function HomePage(): Promise<JSX.Element> {
         </CubuskyContainer>
 
         {/* 2Dog Section */}
-        <div className="grid w-full grid-cols-12 mt-16 gap-4 lg:gap-14 lg:px-8 place-items-center">
+        <div className="grid grid-cols-12 mt-16 gap-4 lg:gap-14 lg:px-8 place-items-center mx-8">
           <div className="col-span-12 lg:col-span-5 lg:order-2">
             <div className="max-w-lg mx-auto">
               <Image
@@ -421,38 +394,42 @@ export default async function HomePage(): Promise<JSX.Element> {
 function Quote(props: {
   children: string | JSX.Element | JSX.Element[];
   className?: string;
+  person?: string;
 }): JSX.Element {
   return (
-    <div className="px-8">
-      <blockquote
-        className={cn(
-          `
-        mx-auto
-        text-2xl/10
-        relative
-        inline-block
-        before:content-['“']
-        before:absolute
-        before:text-7xl
-        before:-left-[2rem]
-        text-pretty
-        `,
-          props.className
-        )}
-      >
-        <span
-          className={`
-        inline-block
-        after:content-['”']
-        after:absolute
-        after:text-7xl
-        after:-right-[2rem]
-        `}
+    <>
+      <div className="px-8">
+        <blockquote
+          className={cn(
+            `
+          mx-auto
+          text-2xl/10
+          relative
+          inline-block
+          before:content-['“']
+          before:absolute
+          before:text-7xl
+          before:-left-8
+          `,
+            props.className
+          )}
         >
-          {props.children}
-        </span>
-      </blockquote>
-    </div>
+          <span
+            className={`
+          inline-block
+          after:content-['”']
+          after:absolute
+          after:text-7xl
+          after:-right-8
+          `}
+          >
+            {props.children}
+
+          </span>
+        </blockquote>
+      </div>
+      {props.person && <span className="block mt-2 text-sm opacity-70"> — {props.person}</span>}
+    </>
   );
 }
 

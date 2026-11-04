@@ -38,6 +38,10 @@ h6 a {
   font-family: Catamaran !important;
 }
 
+@utility pill {
+  @apply inline-flex items-center rounded-full border border-fd-border bg-fd-muted px-3 py-1 text-sm;
+}
+
 #blog-content-frame #nd-toc .h-full {
   height: auto !important;
 }

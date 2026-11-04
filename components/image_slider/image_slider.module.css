@@ -5,10 +5,6 @@
   width: max-content;
   height: 100%;
   translate: -50% 0;
-  filter: grayscale(1) blur(2px);
-  scale: 1;
-  transition: filter 0.333s, scale 0.333s;
-  opacity: 0.666;
 }
 
 .imageSlide {
@@ -19,21 +15,36 @@
   object-fit: contain;
   background-position: center;
   background-size: cover;
+  filter: grayscale(1) blur(2px);
+  scale: 1;
+  transition: filter 0.333s, scale 0.333s;
+  opacity: 0.666;
 }
 
-.imageFrame:hover,
-.carousel:has(.contentOverlay:hover) .imageFrame {
+.imageFrame:hover .imageSlide,
+.carousel:has(.contentOverlay:hover) .imageSlide {
   filter: grayscale(0.333) blur(4px);
   scale: 1.02;
 }
 
-.imageEnter {
+.imageEnter .imageSlide {
   animation: image-enter 0.666s;
 }
 
 .imageExit {
   pointer-events: none;
+}
+
+.imageExit .imageSlide {
   animation: image-exit 0.666s forwards;
+}
+
+.imageEnter .imageSliderButton > svg {
+  animation: content-enter 0.666s 0.333s backwards;
+}
+
+.imageExit .imageSliderButton > svg {
+  animation: content-exit 0.333s forwards;
 }
 
 .imageSliderButton {
@@ -42,24 +53,50 @@
   width: 33%;
   max-width: 33svw;
   height: 100%;
+}
+
+.imageSliderButton > svg {
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+.imageSliderButton[aria-label="Previous slide"] > svg {
+  left: 16.66%;
+}
+
+.imageSliderButton[aria-label="Next slide"] > svg {
+  left: 83.33%;
+}
+
+.imageSliderButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   opacity: 0;
   transition: opacity 0.333s;
   backdrop-filter: blur(16px);
 }
 
-.imageSliderButton:hover {
+.imageSliderButton:hover::before {
   opacity: 1;
 }
 
 .imageSliderButton[aria-label="Next slide"] {
   right: max(0px, calc(50% - 50vw));
   margin-right: -1px;
+}
+
+.imageSliderButton[aria-label="Next slide"]::before {
   mask-image: linear-gradient(to left, black, transparent);
 }
 
 .imageSliderButton[aria-label="Previous slide"] {
   left: max(0px, calc(50% - 50vw));
   margin-left: -1px;
+}
+
+.imageSliderButton[aria-label="Previous slide"]::before {
   mask-image: linear-gradient(to right, black, transparent);
 }
 
@@ -108,10 +145,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .imageEnter,
-  .imageExit,
+  .imageEnter .imageSlide,
+  .imageExit .imageSlide,
+  .imageEnter .imageSliderButton > svg,
+  .imageExit .imageSliderButton > svg,
   .contentEnter,
   .contentExit {
     animation-duration: 1ms;
+    animation-delay: 0s;
   }
 }
