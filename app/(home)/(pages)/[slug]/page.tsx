@@ -26,7 +26,7 @@ export async function generateMetadata(props: {
     description: page.data.description,
     keywords: site.keywords.concat(page.data.keywords).join(", "),
     openGraph: {
-      images: [page.data.image],
+      images: [page.data.image ?? site.previewImage],
     },
   };
 }

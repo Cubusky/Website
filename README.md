@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4914b005-8ae0-4158-9735-0b4b10bd87e4/deploy-status)](https://app.netlify.com/sites/cubusky/deploys)
 
-The official [Cubusky Website](https://cubusky.code).
+The official [Cubusky Website](https://cubusky.com).
 
 ---
 

@@ -49,7 +49,7 @@ export type FooterCategory = {
 };
 
 export const site: SiteData = {
-  url: "https://cubusky.code/",
+  url: "https://cubusky.com/",
   logo: "/img/cubusky/CubuskyLogo_cs.svg",
   title: "Cubusky",
   subtitle: "Tools for C# Game Development.",
