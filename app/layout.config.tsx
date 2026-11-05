@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import { FaHeart } from "react-icons/fa";
 
 export const baseOptions: BaseLayoutProps = {
   githubUrl: "https://github.com/Cubusky/",
@@ -9,7 +10,7 @@ export const baseOptions: BaseLayoutProps = {
         <div className="text-pop superpop">
           <span
             id="cubusky-nav-text"
-            className="text-xl text-(--logo-text) font-semibold"
+            className="hidden sm:inline text-xl text-(--logo-text) font-semibold"
           >
             Cubusky
           </span>
@@ -34,5 +35,17 @@ export const baseOptions: BaseLayoutProps = {
       text: "Licensing",
       url: "/licensing",
     },
+    // {
+    //   type: "custom",
+    //   secondary: true,
+    //   on: "nav",
+    //   children: (
+    //     <li>
+    //       <button className="bg-fd-primary text-(--logo-text-shimmer) font-bold px-4 py-2 rounded inline-flex items-center gap-2">
+    //         Donate <FaHeart aria-hidden />
+    //       </button>
+    //     </li>
+    //   ),
+    // },
   ],
 };

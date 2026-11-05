@@ -75,7 +75,6 @@ h6 a {
 }
 
 /* Fixes an issue on the blog page when code blocks can be too large */
-
 details {
   display: block;
   position: relative;
@@ -97,7 +96,6 @@ details {
     max-width: unset !important;
     min-width: unset !important;
     width: 100% !important;
-    padding-right: 0px !important;
   }
 
   #nd-page article {

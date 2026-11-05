@@ -74,7 +74,6 @@
 }
 
 .prose {
-  --tw-prose-size: 1.166;
   text-align: justify;
   text-justify: inter-word;
 }

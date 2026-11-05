@@ -28,15 +28,17 @@ export default function SiteFooter(props: SiteFooterProps): JSX.Element {
                 alt={site.title}
                 className="mt-[0.25rem] h-[3rem] rounded-none max-w-[3rem]"
               />
+
               <div className="text-left">
-                <p className="text-2xl text-[var(--logo-text-shimmer)] font-semibold mb-[-5px]">
+                <p className="text-lg md:text-xl xl:text-2xl text-[var(--logo-text-shimmer)] font-semibold mb-[-5px]">
                   Cubusky
                 </p>
-                <h3 className="text-lg text-[var(--color-fd-muted-foreground)] font-semibold text-left">
+                <h3 className="text-sm md:text-base xl:text-lg text-[var(--color-fd-muted-foreground)] font-semibold text-left">
                   {site.subtitle}
                 </h3>
               </div>
             </section>
+
             <a href="https://www.netlify.com">
               {" "}
               <SiteImage

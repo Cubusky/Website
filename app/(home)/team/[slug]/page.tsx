@@ -13,8 +13,9 @@ export default async function Page(props: {
 
   return (
     <>
-      <span className="mt-16"></span>
-      <TeamMemberProfile teamMember={teamMember.data} />
+      <div className="mt-16 px-4 py-6">
+        <TeamMemberProfile teamMember={teamMember.data} />
+      </div>
       <SiteFooter className="mt-32" />
     </>
   );
