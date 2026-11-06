@@ -74,8 +74,22 @@
 }
 
 .prose {
+  --tw-prose-size: 0.833;
   text-align: justify;
   text-justify: inter-word;
+
+  @variant sm { 
+    --tw-prose-size: 0.916;
+  }
+  @variant md {
+    --tw-prose-size: 1.000;
+  }
+  @variant lg {
+    --tw-prose-size: 1.083;
+  }
+  @variant xl {
+    --tw-prose-size: 1.166;
+  }
 }
 
 .prose-grid {
