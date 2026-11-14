@@ -135,6 +135,28 @@ export default async function HomePage(): Promise<JSX.Element> {
         </section>
       </CubuskyContainer> */}
 
+      <CubuskyContainer preserve={true} className="px-8">
+        <h1 className="text-4xl md:text-6xl lg:text-8xl mt-16">
+          <Emphasized>Our Mission</Emphasized>
+        </h1>
+
+        <FeatureText className="text-center xl:text-2xl">
+          <p>
+            is to empower C# game developers with the tools and consultancy they need to succeed.
+          </p>
+        </FeatureText>
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl mt-16 md:mt-24 lg:mt-32">
+          <Emphasized>Your Engine, Our Expertise</Emphasized>
+        </h1>
+
+        <FeatureText className="text-center xl:text-2xl">
+          <p>
+            engine's change, best practices stay the same. If it runs C#, we can help you make the most of it.
+          </p>
+        </FeatureText>
+      </CubuskyContainer>
+
       <CubuskyContainer preserve={true} className="relative">
         <CubuskyContainer fade={"both"}>
           <section className="mt-16 px-8 py-4 border-t border-b border-fd-border bg-fd-muted">
