@@ -155,6 +155,18 @@ export default async function HomePage(): Promise<JSX.Element> {
             engine's change, best practices stay the same. If it runs C#, we can help you make the most of it.
           </p>
         </FeatureText>
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl mt-16 md:mt-24 lg:mt-32">
+          <Emphasized>Keep in Touch</Emphasized>
+        </h1>
+
+        <FeatureText className="text-center place-items-center xl:text-2xl">
+          <p>
+            we're still carving out our little place in the universe. Follow our journey on <b>Discord</b>.
+          </p>
+          <DiscordInvite/>
+        </FeatureText>
+
       </CubuskyContainer>
 
       <CubuskyContainer preserve={true} className="relative">
